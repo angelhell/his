@@ -13,7 +13,7 @@ import java.util.Scanner;
  * 21:32
  */
 
-//TODO: add new surgeon is ready to implement && list surgeons and list oncologist are ready to implement
+//TODO: add new surgeon is ready to implement && list surgeons and list oncologist are ready to implement &&delete patient folder
 @SuppressWarnings("Duplicates")
 public class AdminBoundary {
     private static AdminController adminController = new AdminController();
