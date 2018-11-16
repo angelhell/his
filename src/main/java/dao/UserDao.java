@@ -19,4 +19,6 @@ public interface UserDao {
     ArrayList<Oncologist> listOncologists();
 
     User findByUsername(String username);
+
+    Oncologist findOncologistById(Long oncologistId);
 }

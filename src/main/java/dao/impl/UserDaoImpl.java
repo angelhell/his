@@ -72,4 +72,18 @@ public class UserDaoImpl implements UserDao {
             return null;
         }
     }
+
+    public Oncologist findOncologistById(Long id) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Oncologist oncologist = session.get(Oncologist.class, id);
+            session.getTransaction().commit();
+            session.close();
+            return oncologist;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

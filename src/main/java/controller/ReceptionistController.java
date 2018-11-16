@@ -9,6 +9,7 @@ import entity.patient.Patient;
 import entity.patient.PatientFolder;
 import entity.user.USER_ROLE;
 import entity.user.User;
+import entity.user.doctor.Oncologist;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,8 @@ public class ReceptionistController implements LoginController {
                                         String patientBirthDate,
                                         String patientInsuranceCode, //TODO: national or private?
                                         String patientInsuranceCompanyName,
-                                        String patientFirstVisitDate) {
+                                        String patientFirstVisitDate,
+                                        String oncologistId) {
 
         Patient patient = new Patient();
         patient.setIdCode(patientIdCode);
@@ -54,17 +56,13 @@ public class ReceptionistController implements LoginController {
         }
         boolean patientCreated = patientDao.save(patient);
 
-        /*Oncologist dummyOncologist = new Oncologist();
-        dummyOncologist.setName("Dummy Onco");
-        dummyOncologist.setUserRole(USER_ROLE.ROLE_DOCTOR);
-        dummyOncologist.setLevelOfCareer(LevelOfCareer.LEVEL_OF_CAREER_SPECIALIST);
-        userDao.save(dummyOncologist);*/
-
+        Oncologist oncologistToAssign = userDao.findOncologistById(Long.parseLong(oncologistId));
 
         PatientFolder patientFolder = new PatientFolder();
         patientFolder.setFirstVisitDate(patientFirstVisitDate);
         patient.setPatientFolder(patientFolder);
         patientFolder.setPatient(patient);
+        patientFolder.setSpecialistOncologist(oncologistToAssign);
         boolean patientFolderCreated = patientFolderDao.save(patientFolder);
         boolean patientBindedToFolder = patientDao.save(patient);
 

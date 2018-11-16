@@ -1,7 +1,6 @@
 package boundary;
 
 import controller.ReceptionistController;
-import entity.Insurance.PrivateInsurance;
 import entity.patient.Patient;
 import org.hibernate.Session;
 import util.HibernateUtil;
@@ -79,13 +78,16 @@ public class ReceptionistBoundary {
                     }
                     System.out.println("Insert Patient First Visit: ");
                     String patientFirstVisit = scanner.nextLine();
+                    System.out.println("Assign a Oncologist By ID: ");
+                    String oncologistIdToAssignPatientFolder = scanner.nextLine();
                     boolean addedNewPatientFolder = receptionistController.openNewPatientFolder(patientId,
                             patientName,
                             patientSurname,
                             patientBirthdate,
                             privateInsuranceCode,
                             privateInsuranceCompany,
-                            patientFirstVisit);
+                            patientFirstVisit,
+                            oncologistIdToAssignPatientFolder);
                     if (addedNewPatientFolder)
                         System.out.println("New patient has been added and patient folder has been created");
                     break;

@@ -2,9 +2,10 @@ package dao.impl;
 
 import dao.PatientFolderDao;
 import entity.patient.PatientFolder;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import util.HibernateUtil;
+
+import java.util.ArrayList;
 
 /**
  * Created by celenmeh on 16.11.2018
@@ -38,6 +39,21 @@ public class PatientFolderDaoImpl implements PatientFolderDao {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public ArrayList<PatientFolder> findPatientFoldersByOncologist(Long oncologistId) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            ArrayList<PatientFolder> patientFolders = (ArrayList<PatientFolder>) session.createQuery("select p from PatientFolder p where p.specialistOncologist.id= :oncologistId")
+                    .setParameter("oncologistId", oncologistId).list();
+            session.getTransaction().commit();
+            session.close();
+            return patientFolders;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

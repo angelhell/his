@@ -12,5 +12,7 @@ public interface PatientDao {
 
     boolean save(Patient patient);
 
+    Patient getPatient(String id);
+
     ArrayList<Patient> listPatients();
 }

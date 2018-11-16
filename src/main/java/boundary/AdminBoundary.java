@@ -22,12 +22,7 @@ public class AdminBoundary {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.close();
-       /* System.out.println("Do you want to initialize the database? (Y/N)");
-        Scanner scan= new Scanner(System.in);
-        if(scan.nextLine().equals("Y")){
-            DatabaseManager.resetDatabase();
-            DatabaseManager.initializeDatabase();
-        }*/
+
         Scanner loginScanner = new Scanner(System.in);
         while (true) {
             System.out.println("Username: ");
@@ -46,11 +41,13 @@ public class AdminBoundary {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Select an option:");
             System.out.println("1. Add New Oncologist");
-            System.out.println("2. Add New Surgeon");
-            System.out.println("3. List Surgeons");
-            System.out.println("4. List Oncologists");
-            System.out.println("5. Exit");
+            System.out.println("2. Add New Surgeon"); //TODO: IMPLEMENT BOUNDARY****
+            System.out.println("3. List Surgeons"); //TODO: IMPLEMENT BOUNDARY****
+            System.out.println("4. List Oncologists"); //TODO: IMPLEMENT BOUNDARY***
+            System.out.println("5. Delete A Patient Folder"); //TODO: IMPLEMENT BOUNDARY***
+            System.out.println("6. Exit");
             int choice = 0;
+
             try {
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException ignored) {
@@ -112,10 +109,10 @@ public class AdminBoundary {
                     }
                     break;
                 default:
-                    choice = 5;
+                    choice = 6;
                     break;
             }
-            if (choice == 5)
+            if (choice == 6)
                 System.exit(1);
         }
     }

@@ -27,6 +27,20 @@ public class PatientDaoImpl implements PatientDao {
         }
     }
 
+    public Patient getPatient(String id) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Patient patient = session.get(Patient.class, id);
+            session.getTransaction().commit();
+            session.close();
+            return patient;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public ArrayList<Patient> listPatients() {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
