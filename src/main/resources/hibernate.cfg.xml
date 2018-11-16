@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name="hibernate.connection.url">jdbc:hsqldb:hsql://localhost/hisdb</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="show_sql">true</property>
+        <property name="dialect">org.hibernate.dialect.HSQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="entity.user.User"/>
+        <mapping class="entity.patient.Patient"/>
+        <mapping class="entity.Insurance.Insurance"/>
+        <mapping class="entity.Insurance.PrivateInsurance"/>
+        <mapping class="entity.Insurance.NationalInsurance"/>
+        <mapping class="entity.user.doctor.Doctor"/>
+        <mapping class="entity.user.doctor.Oncologist"/>
+        <mapping class="entity.user.doctor.Surgeon" />
+        <mapping class="entity.patient.PatientFolder"/>
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,14 @@
+package entity.user.doctor;
+
+/**
+ * Created by celenmeh on 16.11.2018
+ * 00:07
+ */
+public enum SurgeonType {
+    SURGEON_TYPE_GENERAL,
+    SURGEON_TYPE_PEDIATRIC,
+    SURGEON_TYPE_CARDIOTHORACIC,
+    SURGEON_TYPE_NEUROSURGERY,
+    SURGEON_TYPE_ORAL_AND_MAXILLOFACIAL,
+    SURGEON_TYPE_UROLOGY;
+}
