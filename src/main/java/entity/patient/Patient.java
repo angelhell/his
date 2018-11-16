@@ -2,10 +2,10 @@ package entity.patient;
 
 import entity.Insurance.Insurance;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by celenmeh on 15.11.2018

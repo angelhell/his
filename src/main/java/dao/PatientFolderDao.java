@@ -9,6 +9,7 @@ import entity.patient.PatientFolder;
 public interface PatientFolderDao {
 
     boolean save(PatientFolder patientFolder);
-    boolean delete(PatientFolder patientFolder);
+
+    boolean delete(Long patientFolderId);
 
 }

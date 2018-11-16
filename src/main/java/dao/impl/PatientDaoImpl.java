@@ -13,21 +13,31 @@ import java.util.ArrayList;
  */
 public class PatientDaoImpl implements PatientDao {
     public boolean save(Patient patient) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.saveOrUpdate(patient.getInsurance());
-        session.saveOrUpdate(patient);
-        session.getTransaction().commit();
-        session.close();
-        return true;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.saveOrUpdate(patient.getInsurance());
+            session.saveOrUpdate(patient);
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public ArrayList<Patient> listPatients() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        ArrayList<Patient> patientList = (ArrayList<Patient>) session.createQuery("select p from Patient p").list();
-        session.getTransaction().commit();
-        session.close();
-        return patientList;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            ArrayList<Patient> patientList = (ArrayList<Patient>) session.createQuery("select p from Patient p").list();
+            session.getTransaction().commit();
+            session.close();
+            return patientList;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

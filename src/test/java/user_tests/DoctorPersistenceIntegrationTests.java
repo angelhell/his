@@ -28,7 +28,7 @@ public class DoctorPersistenceIntegrationTests {
 
         Oncologist oncologist = new Oncologist();
         oncologist.setName("myName");
-        oncologist.setUser_role(USER_ROLE.ROLE_DOCTOR);
+        oncologist.setUserRole(USER_ROLE.ROLE_DOCTOR);
         oncologist.setLevelOfCareer(LevelOfCareer.LEVEL_OF_CAREER_SPECIALIST);
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -51,7 +51,7 @@ public class DoctorPersistenceIntegrationTests {
         surgeon.setPassword("123");
         surgeon.setSurname("surname");
         surgeon.setProfId("654654");
-        surgeon.setUser_role(USER_ROLE.ROLE_DOCTOR);
+        surgeon.setUserRole(USER_ROLE.ROLE_DOCTOR);
         surgeon.setUsername("username");
 
         Session session = HibernateUtil.getSessionFactory().openSession();

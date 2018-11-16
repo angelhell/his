@@ -16,7 +16,7 @@ public class User implements Serializable {
     private String username;
     private String password;
     @Enumerated(EnumType.STRING)
-    private USER_ROLE user_role;
+    private USER_ROLE userRole;
 
 
     public Long getId() {
@@ -43,11 +43,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public USER_ROLE getUser_role() {
-        return user_role;
+    public USER_ROLE getUserRole() {
+        return userRole;
     }
 
-    public void setUser_role(USER_ROLE user_role) {
-        this.user_role = user_role;
+    public void setUserRole(USER_ROLE user_role) {
+        this.userRole = user_role;
     }
 }

@@ -5,7 +5,6 @@ import entity.user.doctor.Oncologist;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by celenmeh on 16.11.2018
@@ -17,7 +16,7 @@ public class PatientFolder implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @ManyToOne
     private Oncologist specialistOncologist;
     private String firstVisitDate;
     @OneToOne

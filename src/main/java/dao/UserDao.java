@@ -12,7 +12,11 @@ import java.util.ArrayList;
  */
 public interface UserDao {
 
-    boolean save(Class<?> user);
+    boolean save(User user);
+
     ArrayList<Surgeon> listSurgeons();
+
     ArrayList<Oncologist> listOncologists();
+
+    User findByUsername(String username);
 }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 public interface PatientDao {
 
-   boolean save(Patient patient);
-   ArrayList<Patient> listPatients();
+    boolean save(Patient patient);
+
+    ArrayList<Patient> listPatients();
 }

@@ -12,6 +12,7 @@ import java.io.Serializable;
  */
 @Entity
 public class Medicine implements Serializable {
+    private static final long serialVersionUID = 6003380030684092806L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

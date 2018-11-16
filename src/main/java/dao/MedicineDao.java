@@ -11,6 +11,8 @@ import java.util.ArrayList;
 public interface MedicineDao {
 
     boolean save(Medicine medicine);
+
     boolean delete(Medicine medicine);
+
     ArrayList<Medicine> listMedicines();
 }
