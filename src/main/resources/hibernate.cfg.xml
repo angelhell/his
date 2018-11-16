@@ -20,6 +20,7 @@
         <mapping class="entity.user.doctor.Oncologist"/>
         <mapping class="entity.user.doctor.Surgeon" />
         <mapping class="entity.patient.PatientFolder"/>
+        <mapping class="entity.medicine.Medicine"/>
 
     </session-factory>
 </hibernate-configuration>
