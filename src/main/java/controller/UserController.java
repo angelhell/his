@@ -9,23 +9,14 @@ import entity.user.User;
  * 02:47
  */
 public class UserController {
-    private UserDaoImpl userDao = new UserDaoImpl();
+    private static UserDaoImpl userDao = new UserDaoImpl();
 
-    public boolean register(String username, String password, USER_ROLE userRole) {
+    public static boolean register(String username, String password, USER_ROLE userRole) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
         user.setUserRole(userRole);
 
         return userDao.save(user);
-    }
-
-    public USER_ROLE login(String username, String password) {
-        User user = userDao.findByUsername(username);
-        if (user.getPassword().equals(password)) {
-            return user.getUserRole();
-        } else {
-            return null;
-        }
     }
 }
